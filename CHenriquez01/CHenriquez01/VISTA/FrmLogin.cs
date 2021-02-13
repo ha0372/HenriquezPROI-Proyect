@@ -1,5 +1,6 @@
 ﻿using CHenriquez01.DOMINIO;
 using CHenriquez01.NEGOCIO;
+using CHenriquez01.VISTA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace CHenriquez01
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
+            FrmMenu frmM = new FrmMenu();
             Login log = new Login();
 
             log.User = txtUser.Text;
@@ -32,7 +34,8 @@ namespace CHenriquez01
 
             if (evaluacion == 1)
             {
-                MessageBox.Show("Welcome");
+                
+                frmM.Show();
             }
             else
             {
