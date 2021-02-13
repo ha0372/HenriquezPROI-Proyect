@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CHenriquez01.DOMINIO;
+using CHenriquez01.NEGOCIO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +18,33 @@ namespace CHenriquez01
         {
             InitializeComponent();
         }
+
+        private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            Login log = new Login();
+
+            log.User = txtUser.Text;
+            log.Password = txtPass.Text;
+
+            ClsLogin clsL = new ClsLogin();
+
+            int evaluacion = clsL.acceso(log);
+
+            if (evaluacion == 1)
+            {
+                MessageBox.Show("Welcome");
+            }
+            else
+            {
+                MessageBox.Show("No se encuentra en el sistema");
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
+
+

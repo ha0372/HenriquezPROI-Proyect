@@ -11,7 +11,7 @@ namespace CHenriquez01.NEGOCIO
     {
         Login log = new Login();
 
-        public int acceso()
+        public int acceso(Login log)
         {
             int estado = 0;
             if (log.User.Equals("william") && log.Password.Equals("123"))

@@ -35,6 +35,7 @@ namespace CHenriquez01
             this.label3 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,19 +91,36 @@ namespace CHenriquez01
             // 
             this.btnAcceder.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcceder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(38)))), ((int)(((byte)(39)))));
-            this.btnAcceder.Location = new System.Drawing.Point(203, 273);
+            this.btnAcceder.Location = new System.Drawing.Point(97, 282);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(90, 30);
             this.btnAcceder.TabIndex = 5;
             this.btnAcceder.Text = "ACCEDER";
             this.btnAcceder.UseVisualStyleBackColor = true;
+            this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(38)))), ((int)(((byte)(39)))));
+            this.btnSalir.Location = new System.Drawing.Point(274, 282);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(90, 29);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "SALIR";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnAcceder;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(38)))), ((int)(((byte)(39)))));
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(489, 339);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label3);
@@ -127,6 +145,7 @@ namespace CHenriquez01
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnAcceder;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
