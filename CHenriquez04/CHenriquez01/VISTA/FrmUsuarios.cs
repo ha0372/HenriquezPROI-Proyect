@@ -16,7 +16,27 @@ namespace CHenriquez01.VISTA
         public FrmUsuarios()
         {
             InitializeComponent();
+            Carga();
         }
+
+        void Carga()
+            {
+            dataGridView1.Rows.Clear();
+            using (programacionEntities db = new programacionEntities())
+            {
+                var Lista = db.UserList.ToList();
+
+                foreach (var iteracion in Lista)
+                {
+
+                    dataGridView1.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
+
+
+                }
+            }
+        }
+
+        
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -40,7 +60,8 @@ namespace CHenriquez01.VISTA
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                } 
+                }
+                Carga();
             }
         }
 
@@ -50,10 +71,10 @@ namespace CHenriquez01.VISTA
             {
                 using (programacionEntities db = new programacionEntities())
                 {
-
-                    UserList userList = new UserList();
                     int eliminar = Convert.ToInt32(txtId.Text);
-                    userList = db.UserList.Find(eliminar);
+                    UserList userList = db.UserList.Where(x => x.Id == eliminar).Select(x => x).FirstOrDefault();
+
+                    //userList = db.UserList.Find(eliminar);
                     db.UserList.Remove(userList);
                     db.SaveChanges();
 
@@ -64,6 +85,37 @@ namespace CHenriquez01.VISTA
             {
                 MessageBox.Show(ex.ToString());
             }
+            Carga();
+        }
+
+
+        private void txtActualizar_Click(object sender, EventArgs e)
+        {
+             try {
+
+
+                using (programacionEntities db = new programacionEntities())
+                {
+
+                    //int update = Convert.ToInt32(txtId.Text);
+                    UserList userList = db.UserList.Where(x => x.Id == 140).Select(x => x).FirstOrDefault();
+                    //UserList list = new UserList();
+                    //list = db.UserList.Find(2);
+                    userList.NombreUsuario = txtNombre.Text;
+                    userList.Apellido = txtApellido.Text;
+                    userList.Edad = Convert.ToInt32(txtEdad.Text);
+                    userList.Pass = txtPass.Text;
+                    db.SaveChanges();
+                }
+
+             } catch (Exception ex) {
+
+
+                    MessageBox.Show(ex.ToString());
+                
+            
+            }
+            
         }
     }
 }
