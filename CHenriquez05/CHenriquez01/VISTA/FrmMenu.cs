@@ -59,5 +59,12 @@ namespace CHenriquez01.VISTA
 
             frmOp.Show();
         }
+
+        private void cRUDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios frmUsuarios = new FrmUsuarios();
+            frmUsuarios.MdiParent = this;
+            frmUsuarios.Show();
+        }
     }
 }

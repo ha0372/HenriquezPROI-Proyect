@@ -17,11 +17,22 @@ namespace CHenriquez01.VISTA
         {
             InitializeComponent();
             Carga();
+            clear();
+        }
+        void clear()
+        {
+
+            txtId.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtEdad.Clear();
+            txtPass.Clear();
+
         }
 
         void Carga()
             {
-            dataGridView1.Rows.Clear();
+            dtgListaUsuarios.Rows.Clear();
             using (programacionEntities db = new programacionEntities())
             {
                 var Lista = db.UserList.ToList();
@@ -29,7 +40,7 @@ namespace CHenriquez01.VISTA
                 foreach (var iteracion in Lista)
                 {
 
-                    dataGridView1.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
+                    dtgListaUsuarios.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
 
 
                 }
@@ -62,6 +73,7 @@ namespace CHenriquez01.VISTA
                     MessageBox.Show(ex.ToString());
                 }
                 Carga();
+                clear();
             }
         }
 
@@ -86,6 +98,7 @@ namespace CHenriquez01.VISTA
                 MessageBox.Show(ex.ToString());
             }
             Carga();
+            clear();
         }
 
 
@@ -116,7 +129,23 @@ namespace CHenriquez01.VISTA
             
              }
             Carga();
+            clear();
 
+        }
+
+        private void dtgListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String Id = dtgListaUsuarios.CurrentRow.Cells[0].Value.ToString();
+            String Nombre = dtgListaUsuarios.CurrentRow.Cells[1].Value.ToString();
+            String Apellido = dtgListaUsuarios.CurrentRow.Cells[2].Value.ToString();
+            String Edad = dtgListaUsuarios.CurrentRow.Cells[3].Value.ToString();
+            String Pass = dtgListaUsuarios.CurrentRow.Cells[4].Value.ToString();
+
+            txtId.Text = Id;
+            txtNombre.Text = Nombre;
+            txtApellido.Text = Apellido;
+            txtEdad.Text = Edad;
+            txtPass.Text = Pass;
         }
     }
 }

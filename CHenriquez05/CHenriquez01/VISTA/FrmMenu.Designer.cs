@@ -38,6 +38,8 @@ namespace CHenriquez01.VISTA
             this.sumaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.conexionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cRUDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@ namespace CHenriquez01.VISTA
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acercaDeToolStripMenuItem,
             this.arreglosToolStripMenuItem,
-            this.matematicasToolStripMenuItem});
+            this.matematicasToolStripMenuItem,
+            this.conexionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -95,14 +98,14 @@ namespace CHenriquez01.VISTA
             // sumaToolStripMenuItem
             // 
             this.sumaToolStripMenuItem.Name = "sumaToolStripMenuItem";
-            this.sumaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sumaToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.sumaToolStripMenuItem.Text = "Suma";
             this.sumaToolStripMenuItem.Click += new System.EventHandler(this.sumaToolStripMenuItem_Click);
             // 
             // restaToolStripMenuItem
             // 
             this.restaToolStripMenuItem.Name = "restaToolStripMenuItem";
-            this.restaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restaToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.restaToolStripMenuItem.Text = "Resta";
             this.restaToolStripMenuItem.Click += new System.EventHandler(this.restaToolStripMenuItem_Click);
             // 
@@ -114,6 +117,21 @@ namespace CHenriquez01.VISTA
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
+            // 
+            // conexionesToolStripMenuItem
+            // 
+            this.conexionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cRUDToolStripMenuItem});
+            this.conexionesToolStripMenuItem.Name = "conexionesToolStripMenuItem";
+            this.conexionesToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.conexionesToolStripMenuItem.Text = "CONEXIONES BD";
+            // 
+            // cRUDToolStripMenuItem
+            // 
+            this.cRUDToolStripMenuItem.Name = "cRUDToolStripMenuItem";
+            this.cRUDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cRUDToolStripMenuItem.Text = "CRUD";
+            this.cRUDToolStripMenuItem.Click += new System.EventHandler(this.cRUDToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -146,5 +164,7 @@ namespace CHenriquez01.VISTA
         private System.Windows.Forms.ToolStripMenuItem matematicasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sumaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conexionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cRUDToolStripMenuItem;
     }
 }
