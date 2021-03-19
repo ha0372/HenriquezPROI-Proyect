@@ -1,4 +1,5 @@
-﻿using CHenriquez01.MODEL;
+﻿using CHenriquez01.DAO;
+using CHenriquez01.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,72 +32,62 @@ namespace CHenriquez01.VISTA
         }
 
         void Carga()
-            {
+        {
             dtgListaUsuarios.Rows.Clear();
-            using (programacionEntities db = new programacionEntities())
+            ClsDUserList clsDUserList = new ClsDUserList();
+            List<UserList> Lista = clsDUserList.cargarDatoUserList();
+
+            foreach (var iteracion in Lista)
             {
-                var Lista = db.UserList.ToList();
 
-                foreach (var iteracion in Lista)
-                {
-
-                    dtgListaUsuarios.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
+                dtgListaUsuarios.Rows.Add(iteracion.Id, iteracion.NombreUsuario, iteracion.Apellido, iteracion.Edad, iteracion.Pass);
 
 
-                }
             }
         }
 
-        
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            using(programacionEntities db = new programacionEntities()) {
+            //using(programacionEntities db = new programacionEntities()) { }
+            //for (int i=0; i<=100; i++ ) { }
 
-                //for (int i=0; i<=100; i++ ) { }
-                try { 
+            if (txtId.Text.Equals(""))
+            {
+
+                ClsDUserList clsDUserList = new ClsDUserList();
+                //clsDUserList.SaveDatosUser(txtNombre.Text, txtApellido.Text, Convert.ToInt32(txtEdad.Text),txtPass.Text);
                 UserList userList = new UserList();
-
                 userList.NombreUsuario = txtNombre.Text;
                 userList.Apellido = txtApellido.Text;
                 userList.Edad = Convert.ToInt32(txtEdad.Text);
                 userList.Pass = txtPass.Text;
-
-                db.UserList.Add(userList);
-                db.SaveChanges();
-
-                    MessageBox.Show("SAVE"); 
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                Carga();
-                clear();
+                clsDUserList.SaveDatosUser(userList);
             }
+            else
+            {
+                ClsDUserList clsDUserList = new ClsDUserList();
+
+                UserList userList = new UserList();
+                userList.Id = Convert.ToInt32(txtId.Text);
+                userList.NombreUsuario = txtNombre.Text;
+                userList.Apellido = txtApellido.Text;
+                userList.Edad = Convert.ToInt32(txtEdad.Text);
+                userList.Pass = txtPass.Text;
+                clsDUserList.updateUser(userList);
+            }
+
+            Carga();
+            clear();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (programacionEntities db = new programacionEntities())
-                {
-                    int eliminar = Convert.ToInt32(txtId.Text);
-                    UserList userList = db.UserList.Where(x => x.Id == eliminar).Select(x => x).FirstOrDefault();
+            ClsDUserList user = new ClsDUserList();
+            user.deleteUser(Convert.ToInt32(txtId.Text));
 
-                    //userList = db.UserList.Find(eliminar);
-                    db.UserList.Remove(userList);
-                    db.SaveChanges();
-
-                    MessageBox.Show("Eliminado");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
             Carga();
             clear();
         }
@@ -104,33 +95,8 @@ namespace CHenriquez01.VISTA
 
         private void txtActualizar_Click(object sender, EventArgs e)
         {
-             try {
-
-
-                using (programacionEntities db = new programacionEntities())
-                {
-
-                    int update = Convert.ToInt32(txtId.Text);
-                    UserList userList = db.UserList.Where(x => x.Id == update).Select(x => x).FirstOrDefault();
-                    //UserList list = new UserList();
-                    //list = db.UserList.Find(2);
-                    userList.NombreUsuario = txtNombre.Text;
-                    userList.Apellido = txtApellido.Text;
-                    userList.Edad = Convert.ToInt32(txtEdad.Text);
-                    userList.Pass = txtPass.Text;
-                    db.SaveChanges();
-                }
-
-             } catch (Exception ex) {
-
-
-                    MessageBox.Show(ex.ToString());
-                
-            
-             }
             Carga();
             clear();
-
         }
 
         private void dtgListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)

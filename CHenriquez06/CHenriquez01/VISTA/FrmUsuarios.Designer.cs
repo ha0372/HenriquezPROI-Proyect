@@ -41,7 +41,6 @@ namespace CHenriquez01.VISTA
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtActualizar = new System.Windows.Forms.Button();
             this.dtgListaUsuarios = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +63,7 @@ namespace CHenriquez01.VISTA
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(252, 28);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(328, 26);
@@ -152,16 +152,6 @@ namespace CHenriquez01.VISTA
             this.label5.TabIndex = 11;
             this.label5.Text = "Password";
             // 
-            // txtActualizar
-            // 
-            this.txtActualizar.Location = new System.Drawing.Point(478, 587);
-            this.txtActualizar.Name = "txtActualizar";
-            this.txtActualizar.Size = new System.Drawing.Size(138, 36);
-            this.txtActualizar.TabIndex = 12;
-            this.txtActualizar.Text = "Actualizar";
-            this.txtActualizar.UseVisualStyleBackColor = true;
-            this.txtActualizar.Click += new System.EventHandler(this.txtActualizar_Click);
-            // 
             // dtgListaUsuarios
             // 
             this.dtgListaUsuarios.AllowUserToAddRows = false;
@@ -217,7 +207,6 @@ namespace CHenriquez01.VISTA
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 629);
             this.Controls.Add(this.dtgListaUsuarios);
-            this.Controls.Add(this.txtActualizar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -255,7 +244,6 @@ namespace CHenriquez01.VISTA
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button txtActualizar;
         private System.Windows.Forms.DataGridView dtgListaUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
