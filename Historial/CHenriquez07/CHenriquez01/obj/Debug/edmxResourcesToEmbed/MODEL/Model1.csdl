@@ -9,8 +9,35 @@
     <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Edad" Type="Int32" />
     <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdTypeOfUser" Type="Int32" />
+    <NavigationProperty Name="typeOfUser" Relationship="programacionModel.FK__UserList__IdType__49C3F6B7" FromRole="UserList" ToRole="typeOfUser" />
   </EntityType>
   <EntityContainer Name="programacionEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="UserList" EntityType="Self.UserList" />
+    <EntitySet Name="typeOfUser" EntityType="programacionModel.typeOfUser" />
+    <AssociationSet Name="FK__UserList__IdType__49C3F6B7" Association="programacionModel.FK__UserList__IdType__49C3F6B7">
+      <End Role="typeOfUser" EntitySet="typeOfUser" />
+      <End Role="UserList" EntitySet="UserList" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="typeOfUser">
+    <Key>
+      <PropertyRef Name="idTypeOfUser" />
+    </Key>
+    <Property Name="idTypeOfUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeofUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserList" Relationship="programacionModel.FK__UserList__IdType__49C3F6B7" FromRole="typeOfUser" ToRole="UserList" />
+  </EntityType>
+  <Association Name="FK__UserList__IdType__49C3F6B7">
+    <End Type="programacionModel.typeOfUser" Role="typeOfUser" Multiplicity="0..1" />
+    <End Type="programacionModel.UserList" Role="UserList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typeOfUser">
+        <PropertyRef Name="idTypeOfUser" />
+      </Principal>
+      <Dependent Role="UserList">
+        <PropertyRef Name="IdTypeOfUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
