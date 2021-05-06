@@ -120,3 +120,4 @@ C:\Users\crobe\Documents\GitHub\HenriquezPROI-Proyect\Historial\CHenriquez06\CHe
 C:\Users\crobe\Documents\GitHub\HenriquezPROI-Proyect\Historial\CHenriquez06\CHenriquez01\obj\Debug\CHenriquez01.csproj.CopyComplete
 C:\Users\crobe\Documents\GitHub\HenriquezPROI-Proyect\Historial\CHenriquez06\CHenriquez01\obj\Debug\CHenriquez01.exe
 C:\Users\crobe\Documents\GitHub\HenriquezPROI-Proyect\Historial\CHenriquez06\CHenriquez01\obj\Debug\CHenriquez01.pdb
+C:\Users\crobe\Documents\GitHub\HenriquezPROI-Proyect\Historial\CHenriquez06\CHenriquez01\obj\Debug\CHenriquez01.VISTA.FrmJoin.resources
